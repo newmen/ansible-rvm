@@ -14,7 +14,3 @@ Role Variables
 License
 -------
 [MIT](https://github.com/newmen/rvm/blob/master/LICENSE)
-
-Author Information
-------------------
-https://github.com/newmen

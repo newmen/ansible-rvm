@@ -7,7 +7,7 @@ galaxy_info:
   platforms:
   - name: CentOS
     versions:
-    - 6.5
+    - 6
   - name: Debian
     versions:
     - squeeze
