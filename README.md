@@ -1,0 +1,4 @@
+rvm
+===
+
+Ansible RVM role
