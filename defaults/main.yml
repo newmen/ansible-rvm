@@ -1,0 +1,6 @@
+---
+rvm:
+  url: https://get.rvm.io
+  temp_installer_path: /root/rvm-installer.sh
+
+  ruby_version: ruby-2.1.1

@@ -1,0 +1,10 @@
+---
+- name: updating RVM
+  command: "/usr/local/rvm/bin/rvm get stable"
+  sudo: yes
+
+- name: installing Ruby
+  command: "/usr/local/rvm/bin/rvm install {{rvm.ruby_version}}"
+  sudo: yes
+
+- include: ./select_ruby.yml

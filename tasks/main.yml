@@ -1,0 +1,13 @@
+---
+- name: check if RVM is installed
+  file:
+    path: /etc/profile.d/rvm.sh
+    state: file
+  ignore_errors: True
+  register: rvm_install_result
+- include: ./install_rvm.yml
+  when: rvm_install_result | failed
+
+- include: ./select_ruby.yml
+- include: ./install_ruby.yml
+  when: rvm_select_ruby_version | failed

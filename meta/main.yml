@@ -1,0 +1,28 @@
+---
+galaxy_info:
+  author: newmen
+  description: RVM and Ruby installation
+  min_ansible_version: 1.5
+  license: GPLv3
+  platforms:
+  - name: Centos
+    versions:
+    - 6.5
+  - name: Debian
+    versions:
+    - 6
+    - 7
+  - name: Fedora
+    versions:
+    - 18
+    - 19
+    - 20
+  - name: Ubuntu
+    versions:
+    - 10.04
+    - 12.04
+    - 13.10
+  categories:
+  - development
+
+dependencies: []

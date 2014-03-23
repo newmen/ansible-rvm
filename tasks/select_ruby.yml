@@ -1,0 +1,6 @@
+---
+- name: setting default Ruby version
+  shell: "source /etc/profile.d/rvm.sh && rvm use {{rvm.ruby_version}} --default executable=/bin/bash"
+  sudo: yes
+  register: rvm_select_ruby_version
+  ignore_errors: True

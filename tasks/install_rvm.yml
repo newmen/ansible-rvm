@@ -1,0 +1,26 @@
+---
+- name: downloading RVM installer
+  get_url:
+    url: "{{rvm.url}}"
+    dest: "{{rvm.temp_installer_path}}"
+  sudo: yes
+
+- name: set executable RVM installer
+  file:
+    path: "{{rvm.temp_installer_path}}"
+    mode: 0755
+  sudo: yes
+
+- name: installing RVM
+  command: "{{rvm.temp_installer_path}} stable"
+  sudo: yes
+
+- name: removing RVM installer
+  file:
+    path: "{{rvm.temp_installer_path}}"
+    state: absent
+  sudo: yes
+
+- name: setting RVM autolibs on
+  command: /usr/local/rvm/bin/rvm autolibs 3
+  sudo: yes
