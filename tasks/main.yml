@@ -1,7 +1,7 @@
 ---
-- name: check if RVM is installed
+- name: checking that RVM is installed
   file:
-    path: /etc/profile.d/rvm.sh
+    path: "{{rvm.init_script}}"
     state: file
   ignore_errors: True
   register: rvm_install_result
