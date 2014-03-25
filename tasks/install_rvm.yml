@@ -10,7 +10,7 @@
     mode: 0755
 
 - name: installing RVM
-  command: "{{rvm.temp_installer_path}} stable"
+  command: "{{rvm.temp_installer_path}} --path {{rvm.root}} stable"
 
 - name: removing RVM installer
   file:
