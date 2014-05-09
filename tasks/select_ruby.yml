@@ -4,3 +4,4 @@
   sudo: "{{ sudo }}"
   register: rvm_select_ruby_version
   ignore_errors: True
+  changed_when: False
