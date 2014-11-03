@@ -9,7 +9,7 @@ Tested with CentOS 6.5, Debian 6, 7, Fedora 18, 19, 20, Ubuntu 10.04, 12.04, 13.
 
 Role Variables
 --------------
-- `rvm.ruby_version` per default set to `ruby-2.1.2`
+- `rvm.ruby_version` per default set to `ruby-2.1.4`
 - `rvm.url` per default set to `https://get.rvm.io`
 - `rvm.root` per default set to `/usr/local/rvm`
 - `rvm.init_script` per default set to `/etc/profile.d/rvm.sh`

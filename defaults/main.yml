@@ -6,4 +6,4 @@ rvm:
   root: /usr/local/rvm
   init_script: /etc/profile.d/rvm.sh
 
-  ruby_version: ruby-2.1.2
+  ruby_version: ruby-2.1.4
