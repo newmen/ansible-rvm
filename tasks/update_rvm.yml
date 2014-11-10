@@ -1,5 +1,7 @@
 ---
+- include: ./receive_key.yml
+
 - name: updating RVM
-  shell: "gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3 && source {{rvm.init_script}} && rvm get stable executable=/bin/bash"
+  shell: "source {{rvm.init_script}} && rvm get stable executable=/bin/bash"
   sudo: "{{ sudo }}"
   when: rvm.auto_update_rvm

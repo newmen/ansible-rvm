@@ -1,4 +1,6 @@
 ---
+- include: ./receive_key.yml
+
 - name: updating RVM
   command: "{{rvm.root}}/bin/rvm get stable"
 
