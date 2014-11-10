@@ -7,12 +7,12 @@
   register: rvm_install_result
 
 - include: ./install_rvm.yml
-  when: rvm_install_result | failed
+  when: rvm_install_result|failed
 
 - include: ./update_rvm.yml
-  when: rvm_install_result | success
+  when: rvm.auto_update_rvm and rvm_install_result|success
 
 - include: ./select_ruby.yml
 
 - include: ./install_ruby.yml
-  when: rvm_select_ruby_version | failed
+  when: rvm_select_ruby_version|failed

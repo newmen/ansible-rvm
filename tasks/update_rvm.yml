@@ -4,4 +4,3 @@
 - name: updating RVM
   shell: "source {{rvm.init_script}} && rvm get stable executable=/bin/bash"
   sudo: "{{ sudo }}"
-  when: rvm.auto_update_rvm
