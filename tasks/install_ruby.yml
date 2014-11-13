@@ -1,9 +1,4 @@
 ---
-- include: ./receive_key.yml
-
-- name: updating RVM
-  command: "{{rvm.root}}/bin/rvm get stable"
-
 - name: installing Ruby
   command: "{{rvm.root}}/bin/rvm install {{rvm.ruby_version}}"
 

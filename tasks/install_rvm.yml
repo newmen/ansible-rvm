@@ -1,4 +1,6 @@
 ---
+- include: ./receive_key.yml
+
 - name: downloading RVM installer
   get_url:
     url: "{{rvm.url}}"
