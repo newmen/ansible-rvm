@@ -1,4 +1,6 @@
 ---
+- include: ./install_packages.yml
+
 - name: checking that RVM is installed
   file:
     path: "{{rvm.init_script}}"
