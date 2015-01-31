@@ -5,11 +5,11 @@ This Ansible role installs RVM as root and the required ruby version. If user is
 
 Requirements
 ------------
-Tested with CentOS 6.5, Debian 6, 7, Fedora 18, 19, 20, Ubuntu 10.04, 12.04, 13.10
+Tested with CentOS 6.5, Debian 6, 7, Fedora 18, 19, 20, 21, Ubuntu 10.04, 12.04, 13.10
 
 Role Variables
 --------------
-- `rvm.ruby_version` per default set to `ruby-2.1.4`
+- `rvm.ruby_version` per default set to `ruby-2.2.0`
 - `rvm.auto_update_rvm` per default set to `true`
 - `rvm.url` per default set to `https://get.rvm.io`
 - `rvm.root` per default set to `/usr/local/rvm`

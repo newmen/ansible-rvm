@@ -8,4 +8,4 @@ rvm:
 
   auto_update_rvm: true
 
-  ruby_version: ruby-2.1.4
+  ruby_version: ruby-2.2.0
