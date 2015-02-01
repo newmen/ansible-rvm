@@ -10,6 +10,7 @@ rvm:
 
   default_ruby_version: ruby-2.2.0
 
+  # the packages which need for download rvm
   required_packages:
     - curl
     - gnupg2
