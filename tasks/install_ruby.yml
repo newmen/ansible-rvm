@@ -1,5 +1,5 @@
 ---
 - name: installing Ruby
-  command: "{{rvm.root}}/bin/rvm install {{rvm.ruby_version}}"
+  command: "{{rvm.root}}/bin/rvm install {{rvm.default_ruby_version}}"
 
 - include: ./select_ruby.yml
