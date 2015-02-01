@@ -1,8 +1,14 @@
 ---
-- name: ensure necessary packages are installed
+- name: ensure necessary yum packages are installed
   yum:
     name: "{{ item }}"
     state: present
-  with_items:
-    - curl
-    - gnupg2
+  with_items: rvm.required_packages
+  when: ansible_os_family == "RedHat"
+
+- name: ensure necessary apt packages are installed
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: rvm.required_packages
+  when: ansible_os_family == "Debian"

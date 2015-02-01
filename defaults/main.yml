@@ -9,3 +9,7 @@ rvm:
   auto_update_rvm: true
 
   ruby_version: ruby-2.2.0
+
+  required_packages:
+    - curl
+    - gnupg2
