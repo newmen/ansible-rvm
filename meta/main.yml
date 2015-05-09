@@ -17,6 +17,7 @@ galaxy_info:
     - 18
     - 19
     - 20
+    - 21
   - name: Ubuntu
     versions:
     - lucid

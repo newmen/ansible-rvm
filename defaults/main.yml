@@ -8,7 +8,7 @@ rvm:
 
   auto_update_rvm: true
 
-  default_ruby_version: ruby-2.2.0
+  default_ruby_version: ruby-2.2.2
 
   # the packages which need for download rvm
   required_packages:
