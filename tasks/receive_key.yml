@@ -1,4 +1,4 @@
 ---
 - name: receiving key
-  shell: "gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3"
+  shell: "command curl -sSL https://rvm.io/mpapis.asc | gpg --import -"
   sudo: "{{ sudo }}"
