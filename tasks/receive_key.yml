@@ -1,4 +1,12 @@
 ---
-- name: receiving key
-  shell: "command curl -sSL https://rvm.io/mpapis.asc | gpg --import -"
+- name: Check for mpapis gpg key
+  shell: gpg --list-keys mpapis
   sudo: "{{ sudo }}"
+  register: mpapis_gpg_key_exists
+  always_run: true
+  ignore_errors: true
+
+- name: receiving key
+  shell: "curl -sSL https://rvm.io/mpapis.asc | gpg --import -"
+  sudo: "{{ sudo }}"
+  when: mpapis_gpg_key_exists.rc != 0
