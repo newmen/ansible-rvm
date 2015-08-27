@@ -8,9 +8,9 @@ provisioner:
   name: ansible_playbook
 #  roles_path:
   hosts: test-kitchen
-  require_ansible_repo: true
-  require_ansible_omnibus: false
-  # ansible_omnibus_url: https://gist.githubusercontent.com/trinitronx/bdfd3cbb338767e58299/raw/648ce8c8c24b8a5c14edd87d0a86fe24bbb83255/ansible_install.sh
+  require_ansible_repo: false
+  require_ansible_omnibus: true
+  ansible_omnibus_url: https://gist.githubusercontent.com/trinitronx/bdfd3cbb338767e58299/raw/648ce8c8c24b8a5c14edd87d0a86fe24bbb83255/ansible_install.sh
   require_chef_for_busser: true
   require_ruby_for_busser: false
   ansible_verbose: true
