@@ -1,0 +1,8 @@
+---
+# This playbook deploys the altermn.rvm role for testing
+
+- hosts: test-kitchen
+  user: vagrant
+
+  roles:
+    - altermn.rvm
