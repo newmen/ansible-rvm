@@ -1,8 +1,9 @@
 ---
 rvm:
   url: https://get.rvm.io
-  temp_installer_path: /root/rvm-installer.sh
+  temp_installer_path: /tmp/rvm-installer.sh
 
+  system_install: true
   root: /usr/local/rvm
   init_script: /etc/profile.d/rvm.sh
 

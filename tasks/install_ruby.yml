@@ -1,5 +1,12 @@
 ---
-- name: installing Ruby
+- name: installing Ruby as root
   command: "{{rvm.root}}/bin/rvm install {{rvm.default_ruby_version}}"
+  sudo: true
+  when: rvm.system_install
+
+- name: installing Ruby as user
+  command: "{{rvm.root}}/bin/rvm install {{rvm.default_ruby_version}}"
+  sudo: false
+  when: not rvm.system_install
 
 - include: ./select_ruby.yml

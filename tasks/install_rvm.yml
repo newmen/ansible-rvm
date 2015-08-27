@@ -11,14 +11,27 @@
     path: "{{rvm.temp_installer_path}}"
     mode: 0755
 
-- name: installing RVM
+- name: installing RVM as root
   command: "{{rvm.temp_installer_path}} --path {{rvm.root}} stable"
+  sudo: true
+  when: rvm.system_install
+
+- name: installing RVM as user
+  command: "{{rvm.temp_installer_path}} --path {{rvm.root}} stable"
+  sudo: false
+  when: not rvm.system_install
 
 - name: removing RVM installer
   file:
     path: "{{rvm.temp_installer_path}}"
     state: absent
 
-- name: setting RVM autolibs on
+- name: setting RVM autolibs on as root
   command: "{{rvm.root}}/bin/rvm autolibs 3"
-  sudo: "{{ sudo }}"
+  sudo: true
+  when: rvm.system_install
+
+- name: setting RVM autolibs on as user
+  command: "{{rvm.root}}/bin/rvm autolibs 3"
+  sudo: false
+  when: not rvm.system_install

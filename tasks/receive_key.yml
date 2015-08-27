@@ -1,12 +1,24 @@
 ---
-- name: Check for mpapis gpg key
+- name: Check for mpapis gpg key as root
   shell: gpg --list-keys mpapis
-  sudo: "{{ sudo }}"
+  sudo: true
   register: mpapis_gpg_key_exists
-  always_run: true
   ignore_errors: true
+  when: rvm.system_install
 
-- name: receiving key
+- name: receiving key as root
   shell: "curl -sSL https://rvm.io/mpapis.asc | gpg --import -"
-  sudo: "{{ sudo }}"
-  when: mpapis_gpg_key_exists.rc != 0
+  sudo: true
+  when: mpapis_gpg_key_exists is defined and mpapis_gpg_key_exists.rc is defined and mpapis_gpg_key_exists.rc != 0 and rvm.system_install
+
+- name: Check for mpapis gpg key as user
+  shell: gpg --list-keys mpapis
+  sudo: false
+  register: mpapis_gpg_key_exists
+  ignore_errors: true
+  when: not rvm.system_install
+
+- name: receiving key as user
+  shell: "curl -sSL https://rvm.io/mpapis.asc | gpg --import -"
+  sudo: false
+  when: mpapis_gpg_key_exists is defined and mpapis_gpg_key_exists.rc is defined and mpapis_gpg_key_exists.rc != 0 and not rvm.system_install

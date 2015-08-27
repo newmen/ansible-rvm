@@ -16,4 +16,4 @@
 - include: ./select_ruby.yml
 
 - include: ./install_ruby.yml
-  when: rvm_select_ruby_version|failed
+  when: rvm_select_ruby_version_user|failed or rvm_select_ruby_version_root|failed
