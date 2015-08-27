@@ -1,0 +1,3 @@
+---
+rvm_root: /usr/local/rvm
+rvm_init_script: /etc/profile.d/rvm.sh

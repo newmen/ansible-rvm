@@ -1,9 +1,12 @@
 ---
+- name: include install type vars
+  include_vars: "{{ rvm_install_type }}.yml"
+
 - include: ./install_packages.yml
 
 - name: checking that RVM is installed
   stat:
-    path: "{{rvm.init_script}}"
+    path: "{{rvm_init_script}}"
   ignore_errors: True
   register: rvm_install_result
 
@@ -11,7 +14,7 @@
   when: rvm_install_result.stat.exists != true
 
 - include: ./update_rvm.yml
-  when: rvm.auto_update_rvm and rvm_install_result.stat.exists == true
+  when: rvm_auto_update_rvm and rvm_install_result.stat.exists == true
 
 - include: ./select_ruby.yml
 

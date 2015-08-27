@@ -2,11 +2,11 @@
 - include: ./receive_key.yml
 
 - name: updating RVM as root
-  shell: "source {{rvm.init_script}} && rvm get stable executable=/bin/bash"
+  shell: "source {{rvm_init_script}} && rvm get stable executable=/bin/bash"
   sudo: true
-  when: rvm.system_install
+  when: "'{{ rvm_install_type }}' == 'system'"
 
 - name: updating RVM as user
-  shell: "source {{rvm.init_script}} && rvm get stable executable=/bin/bash"
+  shell: "source {{rvm_init_script}} && rvm get stable executable=/bin/bash"
   sudo: false
-  when: not rvm.system_install
+  when: "'{{ rvm_install_type }}' == 'user'"
