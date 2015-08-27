@@ -18,3 +18,7 @@ end
 describe command("su - vagrant -c 'rvm list strings'") do
   its(:stdout) { should contain( rvm_default_ruby ) }
 end
+
+describe command("su - vagrant -c 'ruby --version'") do
+  its(:stdout) { should contain( rvm_default_ruby.split('-')[-1].to_s ) }
+end
