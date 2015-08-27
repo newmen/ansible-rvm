@@ -53,16 +53,4 @@ suites:
     attributes:
       extra_vars:
         # Vars for testing the role in test-kitchen
-        rvm:
-          system_install: false
-          root: /home/vagrant/.rvm/
-          init_script: /home/vagrant/.profile
-          url: https://get.rvm.io
-          temp_installer_path: /tmp/rvm-installer.sh
-          auto_update_rvm: true
-          default_ruby_version: ruby-2.2.2
-          # the packages which need for download rvm
-          required_packages:
-            - curl
-            - gnupg2
-
+        rvm_install_type: user
