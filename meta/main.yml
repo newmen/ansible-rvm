@@ -8,10 +8,12 @@ galaxy_info:
   - name: CentOS
     versions:
     - 6
+    - 7
   - name: Debian
     versions:
     - squeeze
     - wheezy
+    - jessie
   - name: Fedora
     versions:
     - 18
@@ -23,7 +25,11 @@ galaxy_info:
     - lucid
     - precise
     - saucy
+    - trusty
+    - utopic
+    - vivid
   categories:
   - development
 
 dependencies: []
+version: 0.1.0

@@ -5,17 +5,25 @@ This Ansible role installs RVM as root and the required ruby version. If user is
 
 Requirements
 ------------
-Tested with CentOS 6.5, Debian 6, 7, Fedora 18, 19, 20, 21, Ubuntu 10.04, 12.04, 13.10
+Tested with CentOS 6.4, 6.5, 7.0, Debian 6.0.10, 7.8, 8.1, Fedora 18, 19, 20, 21, Ubuntu 10.04, 12.04, 13.10, 14.04, 14.10
 
 Role Variables
 --------------
-- `rvm.default_ruby_version` per default set to `ruby-2.2.2`
-- `rvm.auto_update_rvm` per default set to `true`
+- `rvm_install_type` per default set to `system` (valid values: `system`, `user`)
+- `rvm_default_ruby_version` per default set to `ruby-2.2.2`
+- `rvm_auto_update_rvm` per default set to `true`
 - `rvm.url` per default set to `https://get.rvm.io`
-- `rvm.root` per default set to `/usr/local/rvm`
-- `rvm.init_script` per default set to `/etc/profile.d/rvm.sh`
+- `rvm_root` per default set to `/usr/local/rvm`
+- `rvm_init_script` per default set to `/etc/profile.d/rvm.sh`
 
-The latest two variables have presented values because installation runs with root permissions by default (if you passed `-s` option when you're running your playbook)
+The last two variables are set according to whether a `system`-wide install (Multi-User install), or a Single-User install has been chosen with `rvm_install_type`.
+
+The playbook runs with root permissions by default if the `ansible_ssh_user` that is running your playbook has `sudo` privileges, and `rvm_install_type` is set to `system`.
+
+When the playbook is run with `rvm_install_type = user`, the playbook will install RVM to the home directory of the `ansible_ssh_user`.  The defaults for the last two variables are then:
+
+- `rvm_root`: `~/.rvm`
+- `rvm_init_script`: `~/.rvm/scripts/rvm`
 
 License
 -------

@@ -1,0 +1,56 @@
+---
+driver:
+    name: vagrant
+    username: vagrant
+
+provisioner:
+#  ansible_platform: ubuntu
+  name: ansible_playbook
+#  roles_path:
+  hosts: test-kitchen
+  require_ansible_repo: false
+  require_ansible_omnibus: true
+  ansible_omnibus_url: https://gist.githubusercontent.com/trinitronx/bdfd3cbb338767e58299/raw/648ce8c8c24b8a5c14edd87d0a86fe24bbb83255/ansible_install.sh
+  require_chef_for_busser: true
+  require_ruby_for_busser: false
+  ansible_verbose: true
+  ansible_verbosity: 1
+  ansible_sudo: false
+  # sudo: true
+
+platforms:
+  - name: debian-6.0.8
+  - name: debian-6.0.10
+  - name: debian-7.8
+  - name: debian-8.1
+  # - name: ubuntu-10.04 # lucid ## Fails due to `pycrypto` conflict
+  - name: ubuntu-12.04 # precise
+  - name: ubuntu-14.04 # trusty
+  - name: ubuntu-14.10 # utopic
+  - name: ubuntu-15.04 # vivid
+  # - name: centos-5.10 ## Fails! UNSUPPORTED! EPEL 5 doesn't have Ansible, EPEL install fails, pip can't install due to python 2.4
+  #  provisioner:
+  #    ansible_yum_repo: https://download.fedoraproject.org/pub/epel/epel-release-latest-5.noarch.rpm
+  - name: centos-6.4
+  - name: centos-6.5
+    provisioner:
+      ansible_yum_repo: https://download.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+  - name: centos-7.0
+    provisioner:
+      ansible_yum_repo: https://download.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  # - name: nocm_centos-6.5
+  #   driver_plugin: vagrant
+  #   driver_config:
+  #     box: nocm_centos-6.5
+  #     box_url: http://puppet-vagrant-boxes.puppetlabs.com/centos-65-x64-virtualbox-nocm.box
+      # network:
+      #  - ['forwarded_port', {guest: 8080, host: 8080}]
+      #  - [ 'private_network', { ip: '192.168.33.11' } ]
+
+suites:
+  - name: default
+  - name: user-install
+    attributes:
+      extra_vars:
+        # Vars for testing the role in test-kitchen
+        rvm_install_type: user

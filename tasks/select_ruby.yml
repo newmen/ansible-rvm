@@ -1,7 +1,16 @@
 ---
-- name: setting default Ruby version
-  shell: "source {{rvm.init_script}} && rvm use {{rvm.default_ruby_version}} --default executable=/bin/bash"
-  sudo: "{{ sudo }}"
-  register: rvm_select_ruby_version
+- name: setting default Ruby version as root
+  shell: "source {{rvm_init_script}} && rvm use {{rvm_default_ruby_version}} --default executable=/bin/bash"
+  sudo: true
+  register: rvm_select_ruby_version_root
   ignore_errors: True
   changed_when: False
+  when: "'{{ rvm_install_type }}' == 'system'"
+
+- name: setting default Ruby version as user
+  shell: "source {{rvm_init_script}} && rvm use {{rvm_default_ruby_version}} --default executable=/bin/bash"
+  sudo: false
+  register: rvm_select_ruby_version_user
+  ignore_errors: True
+  changed_when: False
+  when: "'{{ rvm_install_type }}' == 'user'"
